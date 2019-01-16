@@ -1,16 +1,55 @@
 package com.travix.medusa.busyflights.domain.crazyair;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class CrazyAirResponse {
 
+	@NotEmpty
     private String airline;
+	@NotNull
     private double price;
+	@NotEmpty
     private String cabinclass;
+	@NotEmpty
+	@Size(min = 3, max = 3)
     private String departureAirportCode;
+	@NotEmpty
+	@Size(min = 3, max = 3)
     private String destinationAirportCode;
+	@NotEmpty
     private String departureDate;
+	@NotEmpty
     private String arrivalDate;
+    
+    
+    public CrazyAirResponse() {
+	}
 
-    public String getAirline() {
+    /**
+	 * @param airline
+	 * @param price
+	 * @param cabinclass
+	 * @param departureAirportCode
+	 * @param destinationAirportCode
+	 * @param departureDate
+	 * @param arrivalDate
+	 */
+	public CrazyAirResponse(String airline, double price, String cabinclass, String departureAirportCode,
+			String destinationAirportCode, String departureDate, String arrivalDate) {
+		super();
+		this.airline = airline;
+		this.price = price;
+		this.cabinclass = cabinclass;
+		this.departureAirportCode = departureAirportCode;
+		this.destinationAirportCode = destinationAirportCode;
+		this.departureDate = departureDate;
+		this.arrivalDate = arrivalDate;
+	}
+
+	public String getAirline() {
         return airline;
     }
 
